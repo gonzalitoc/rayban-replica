@@ -1,0 +1,319 @@
+<header class="header">
+  <div class="container-header">
+    <div class="content">
+      <img class="logo" src="../../src/images/red-logo.svg" alt="logo rojo de Ray-Ban" />
+      <button class="hamburger" aria-label="Toggle navigation">
+        <span class="hamburger-icon"></span>
+      </button>
+      <div class="item-links">
+        <a id="sol-link" class="link" href="#lentes_de_sol">LENTES DE SOL</a>
+        <a class="link" href="#lentes_de_vista">LENTES DE VISTA</a>
+        <a class="link" href="#localizador_de_tiendas">LOCALIZADOR DE TIENDAS</a>
+      </div>
+      <div>
+        <a href="#">
+          <img class="lupa" src="../../src/images/lupa.svg" alt="lupa" />
+        </a>
+      </div>
+    </div>
+  </div>
+  <div id="store-news" class="store-news">
+    <nav>
+      <ul>
+        <li>todos</li>
+        <li><a href="#">Todas las gafas de sol</a></li>
+        <li><a href="#">Novedades</a></li>
+        <li><a href="#">Otros modelos</a></li>
+        <li><a href="#">Los nuevos iconos</a></li>
+      </ul>
+      <ul>
+        <li>compra</li>
+        <li><a href="#">Hombre</a></li>
+        <li><a href="#">Mujer</a></li>
+        <li><a href="#">Niños</a></li>
+      </ul>
+      <ul>
+        <li>tecnología de lentes</li>
+        <li><a href="#">Con polarización</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .header {
+    position: fixed;
+    z-index: 1000;
+    background-color: #fff;
+    width: 100%;
+  }
+
+  .container-header {
+    padding: 0 64px;
+    height: 64px;
+  }
+
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .item-links {
+    display: flex;
+    gap: 32px;
+  }
+
+  .link {
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    color: #1f1f24;
+  }
+
+  .link:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+  }
+
+  .logo {
+    width: 80px;
+    height: auto;
+  }
+
+  .hamburger {
+    display: none;
+    position: absolute;
+    right: 0;
+  }
+
+  .store-news {
+    display: none;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+  }
+
+  .store-news nav {
+    display: flex;
+    padding: 50px 150px;
+    gap: 112px;
+  }
+
+  nav ul li:first-of-type {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+  }
+
+  nav ul li {
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'Lato', sans-serif;
+  }
+
+  nav ul li:not(:first-of-type) {
+    margin-top: 14px;
+  }
+
+  ul li a {
+    color: #1f1f24;
+  }
+
+  ul li a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 960px) {
+    .container-header {
+      padding: 0 20px;
+    }
+
+    .item-links {
+      display: none;
+      flex-direction: column;
+      gap: 12px;
+      background: white;
+      position: absolute;
+      top: 64px;
+      right: 0;
+      width: 100%;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+
+    .link {
+      padding: 9px 50px;
+    }
+
+    .item-links.open {
+      display: flex;
+    }
+
+    .hamburger {
+      display: block;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      padding: 8px;
+      position: absolute;
+    }
+
+    .hamburger-icon {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background-color: #1f1f24;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger-icon::before,
+    .hamburger-icon::after {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 2px;
+      background-color: #1f1f24;
+      position: absolute;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger-icon::before {
+      top: -8px;
+    }
+
+    .hamburger-icon::after {
+      top: 8px;
+    }
+
+    .hamburger.open .hamburger-icon {
+      background-color: transparent;
+    }
+
+    .hamburger.open .hamburger-icon::before {
+      transform: rotate(45deg);
+      top: 0;
+    }
+
+    .hamburger.open .hamburger-icon::after {
+      transform: rotate(-45deg);
+      top: 0;
+    }
+
+    .store-news.store-news--hover {
+      top: 200px;
+    }
+
+    .store-news nav {
+      padding: 20px;
+    }
+
+    .store-news nav ul {
+      gap: 10px;
+    }
+
+    .logo {
+      order: -1;
+    }
+
+    .lupa {
+      position: relative;
+      right: calc(100px - 80px);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .container-header {
+      padding: 0 32px;
+    }
+
+    .store-news nav {
+      flex-direction: column;
+      padding: 20px;
+      gap: 20px;
+    }
+
+    .store-news nav ul {
+      gap: 10px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .container-header {
+      padding: 0 14px;
+      height: 50px;
+    }
+
+    .item-links {
+      top: 50px;
+    }
+
+    .store-news.store-news--hover {
+      top: 180px;
+    }
+
+    .content {
+      height: 100%;
+    }
+
+    .logo {
+      width: 50px;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const solLink = document.getElementById('sol-link')
+    const storeNews = document.getElementById('store-news')
+    const hamburger = document.querySelector('.hamburger')
+    const itemLinks = document.querySelector('.item-links')
+
+    if (solLink && storeNews) {
+      solLink.addEventListener('mouseenter', () => {
+        storeNews.style.display = 'block'
+        storeNews.classList.add('store-news--hover')
+      })
+
+      solLink.addEventListener('mouseleave', () => {
+        setTimeout(() => {
+          if (!storeNews.matches(':hover')) {
+            storeNews.style.display = 'none'
+          }
+        }, 300)
+      })
+
+      storeNews.addEventListener('mouseleave', () => {
+        storeNews.style.display = 'none'
+      })
+
+      storeNews.addEventListener('mouseenter', () => {
+        storeNews.style.display = 'block'
+      })
+    }
+
+    if (hamburger && itemLinks) {
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open')
+        itemLinks.classList.toggle('open')
+      })
+    }
+  })
+</script>

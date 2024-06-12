@@ -1,0 +1,217 @@
+---
+// Component Props
+const texto: string = 'LENTES DE SOL'
+const image: string = '../src/images/person.avif'
+---
+
+<section>
+  <div class="video-container">
+    <div class="content video-content">
+      <video
+        id="custom-video"
+        preload="metadata"
+        playsinline
+        loop
+        src="../../src/video/video-page.webm"
+        autoplay
+        muted
+        controls></video>
+      <div class="custom-controls">
+        <button disabled>⏸️</button>
+        <button disabled>🔇</button>
+      </div>
+      <div class="center-content">
+        <p class="paragraph">LA COLECCIÓN PULSE | SIENTE EL RITMO</p>
+        <button class="button">COMPRA LA COLECCIÓN</button>
+      </div>
+    </div>
+    <div class="content person-content">
+      <div class="person">
+        <img class="image" src={image} alt="persona con lentes de sol" />
+        <div class="overlay-text">{texto}</div>
+      </div>
+      <div class="person">
+        <img class="image" src={image} alt="persona con lentes de sol" />
+        <div class="overlay-text">{texto}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .video-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .content {
+    position: relative;
+  }
+
+  .video-content {
+    width: fit-content;
+    margin-bottom: 8px;
+  }
+
+  video {
+    display: block;
+    width: 100%;
+  }
+
+  .custom-controls {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    gap: 5px;
+  }
+
+  .custom-controls button {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: not-allowed;
+  }
+
+  .custom-controls button:hover {
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  .center-content {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: white;
+  }
+
+  .paragraph {
+    font-size: 24px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .button {
+    background-color: #fff;
+    color: #1f1f24;
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    padding: 9px 24px;
+    font-weight: 500;
+    cursor: pointer;
+    line-height: 1.6;
+    margin-top: 32px;
+    border: none;
+  }
+
+  .button:hover {
+    background-color: hsla(0, 0%, 100%, 0.6);
+    outline: 1px inset rgba(31, 31, 36, 0.6);
+  }
+
+  .person-content {
+    grid-template-columns: repeat(auto-fit, minmax(8.33%, 1fr));
+    display: grid;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .person {
+    position: relative;
+    text-align: center;
+  }
+
+  .image {
+    width: 100%;
+  }
+
+  .overlay-text {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    margin: 0;
+    font-size: 24px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    border-radius: 5px;
+  }
+
+  video::-webkit-media-controls-timeline,
+  video::-webkit-media-controls-current-time-display,
+  video::-webkit-media-controls-time-remaining-display,
+  video::-webkit-media-controls-fullscreen-button,
+  video::-webkit-media-controls-volume-slider,
+  video::-webkit-media-controls-timeline-container {
+    display: none !important;
+  }
+
+  video::-moz-range-track,
+  video::-ms-track {
+    display: none;
+  }
+
+  video::-webkit-media-controls-mute-button {
+    display: block !important;
+  }
+
+  video::-webkit-media-controls-overlay-play-button {
+    display: none !important;
+  }
+
+  @media (max-width: 960px) {
+    .video-container {
+      padding-top: 64px;
+    }
+    .paragraph {
+      font-size: 20px;
+    }
+
+    .button {
+      font-size: 12px;
+      padding: 8px 16px;
+      margin-top: 16px;
+    }
+
+    .overlay-text {
+      font-size: 20px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .video-container {
+      padding-top: 50px;
+    }
+    .person-content {
+      display: flex;
+      gap: 0;
+      flex-direction: column;
+    }
+
+    .custom-controls {
+      top: 5px;
+      left: 5px;
+      gap: 2px;
+    }
+
+    .paragraph {
+      font-size: 14px;
+    }
+
+    .button {
+      font-size: 10px;
+      padding: 6px 12px;
+      margin-top: 8px;
+    }
+
+    .overlay-text {
+      font-size: 14px;
+    }
+  }
+</style>
